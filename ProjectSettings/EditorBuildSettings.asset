@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/dingDongDitch.unity
     guid: d4219f3b947b85240b17460d3179e9b8
+  - enabled: 1
+    path: Assets/Scenes/LvlCompleteScr.unity
+    guid: 73d67726aa401ed4592ae81dfd85137c
+  - enabled: 1
+    path: Assets/Scenes/GameOverScr.unity
+    guid: 59d7b1b5827ecbd498948000af599bba
   m_configObjects: {}

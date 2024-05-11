@@ -12,11 +12,17 @@ public class Ball : MonoBehaviour
     public bool hasStarted = false;
     public int movementAmountX = 0;
 
+    public int score = 0;
+    public int reqScore = 3; // score required to complete the level.
+
     // declare bools for paddle directions:
     public bool pdl1MovingLeft = false;
     public bool pdl1MovingRight = false;
     public bool pdl2MovingLeft = false;
     public bool pdl2MovingRight = false;
+
+    // declare int to hold lives:
+    public int lives = 3; // player gets three retries before game over.
 
     // Start is called before the first frame update
     public void Start()
@@ -31,6 +37,12 @@ public class Ball : MonoBehaviour
         return obj;
     }
 
+    public int incrementScore()
+    {
+        score++;
+        return score;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -39,7 +51,19 @@ public class Ball : MonoBehaviour
             startDirection = startDirectionChooser.Next(1);
             hasStarted = true;
         }
-        Application.targetFrameRate = 60;
+
+        // check lives:
+        if(lives <= 0)
+        {
+            Debug.Log("GAME OVER!");
+            SceneManager.LoadScene(4); // this will load the game over screen.
+        }
+
+        if(score == reqScore)
+        {
+            Debug.Log("LEVEL Complete");
+            SceneManager.LoadScene(3); // this will load the level complete screen.
+        }
 
         // get objects:
         GameObject pdl1 = findObjByName("paddle1");
@@ -179,11 +203,17 @@ public class Ball : MonoBehaviour
         {
             ball.transform.SetPositionAndRotation( new Vector3(Screen.width / 2, Screen.height / 2, 0),transform.rotation);
 
+            // lose a life:
+            lives -= 1;
+
         }
 
         if (ballCol.IsTouching(scrBCol))
         {
             ball.transform.SetPositionAndRotation(new Vector3(Screen.width / 2, Screen.height / 2, 0), transform.rotation);
+            
+            // lose a life:
+            lives -= 1;
 
         }
 

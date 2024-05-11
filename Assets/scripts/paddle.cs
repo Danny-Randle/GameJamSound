@@ -30,8 +30,6 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Application.targetFrameRate = 60;
-
         // get P1 and P2 objects:
         GameObject pdl1 = findObjByName("paddle1");
         GameObject pdl2 = findObjByName("paddle2");

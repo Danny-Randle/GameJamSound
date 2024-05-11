@@ -11,13 +11,13 @@ public class miniGameMgr : MonoBehaviour
         SceneManager.LoadScene(2); // switch to DDD minigame;
     }
 
-    public void switchToRPS()
+    public void lvlCompleteScr()
     {
-        SceneManager.LoadScene(0); // this will open rock paper scissors but atm it takes you to the titleScr.
+        SceneManager.LoadScene(3); // this will load the level complete screen.
     }
 
-    public void switchToGame3()
+    public void gameOverScreen()
     {
-        SceneManager.LoadScene(0); // this will take you to whatever we decide game 3 is going to be.
+        SceneManager.LoadScene(4); // this will load the game over screen.
     }
 }
