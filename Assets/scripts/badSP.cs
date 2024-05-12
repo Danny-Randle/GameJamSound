@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class SP : MonoBehaviour
+public class BadSP : MonoBehaviour
 {
     // rng:
     public System.Random rndDir = new();
@@ -78,7 +78,7 @@ public class SP : MonoBehaviour
 
         if (spCol.IsTouching(ballCol))
         {
-            script.score ++;
+            script.lives --;
             Destroy(gameObject);
         }
         

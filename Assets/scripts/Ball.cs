@@ -73,6 +73,7 @@ public class Ball : MonoBehaviour
         GameObject scrEdgeR = findObjByName("ScreenEdgeR");
         GameObject scrEdgeTop = findObjByName("ScreenEdgeT");
         GameObject scrEdgeBottom = findObjByName("ScreenEdgeB");
+        GameObject livesCntrTxt = findObjByName("Lives counter");
 
         // get rects for all of the above:
         Rect pdl1Rect = pdl1.GetComponent<RectTransform>().rect;
@@ -87,6 +88,12 @@ public class Ball : MonoBehaviour
         BoxCollider2D scrRCol = scrEdgeR.GetComponent<BoxCollider2D>();
         BoxCollider2D scrTCol = scrEdgeTop.GetComponent<BoxCollider2D>();
         BoxCollider2D scrBCol = scrEdgeBottom.GetComponent<BoxCollider2D>();
+
+        // Get the text component for the lives counter object:
+        Text livesCounterTxt = livesCntrTxt.GetComponent<UnityEngine.UI.Text>();
+
+        // pretty much straight away output the lives counter to the screen:
+        livesCounterTxt.text = "Lives: " + lives;
 
         // get the paddles movement:
         if (Input.GetKey("a"))
