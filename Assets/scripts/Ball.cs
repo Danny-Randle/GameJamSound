@@ -11,6 +11,7 @@ public class Ball : MonoBehaviour
     public int startDirection = 0;
     public bool hasStarted = false;
     public int movementAmountX = 0;
+    public int movementAmountY = 0;
 
     public int score = 0;
     public int reqScore = 3; // score required to complete the level.
@@ -22,7 +23,7 @@ public class Ball : MonoBehaviour
     public bool pdl2MovingRight = false;
 
     // declare int to hold lives:
-    public int lives = 3; // player gets three retries before game over.
+    public int lives = 300; // player gets three retries before game over.
 
     // Start is called before the first frame update
     public void Start()
@@ -122,11 +123,13 @@ public class Ball : MonoBehaviour
         // chooseDirectionOfTravel:
         if (startDirection == 0)
         {
-            ball.transform.Translate(movementAmountX, 10, 0); // move the ball down.
+            movementAmountY = 10;
+            ball.transform.Translate(movementAmountX, movementAmountY, 0); // move the ball down.
         }
         else
         {
-            ball.transform.Translate(movementAmountX, -10, 0); // move the ball up.
+            movementAmountY = -10;
+            ball.transform.Translate(movementAmountX, movementAmountY, 0); // move the ball up.
         }
 
         // sort out collision:

@@ -7,9 +7,9 @@ using UnityEngine.UI;
 
 public class Paddle : MonoBehaviour
 {
-
-
-
+    public int powerUp = 0; // 0 = none, 1 = double length, 2 = double speed, 3 = both.
+    public int speed = 5; // default speed of 5.
+    public bool isSpeedHalved = false;
     // Do the same for the second player's icons:
 
     // Start is called before the first frame update
@@ -44,6 +44,38 @@ public class Paddle : MonoBehaviour
         Rect pdl2Rect = pdl2.GetComponent<RectTransform>().rect;
         Rect ballRect = ball.GetComponent<RectTransform>().rect; // looking for the rect of a ball feels weired.
 
+        // get the script for the Ball:
+        Ball script = ball.GetComponent<Ball>();
+
+        // power up logic:
+        if (powerUp == 0)
+        {
+            speed = 5;
+        }
+        
+        if(powerUp == 1)
+        {
+            speed = 10;
+        }
+
+        if(powerUp == 2)
+        {
+            if(script.movementAmountX == 10 ||  script.movementAmountX == -10) 
+            {
+                script.movementAmountX = script.movementAmountX / 2;
+            }
+            if(script.movementAmountY == 10 || script.movementAmountY == -10)
+            {
+                script.movementAmountY = script.movementAmountY / 2;
+            }
+            else
+            {
+                script.movementAmountX = script.movementAmountX;
+                script.movementAmountY = script.movementAmountY;
+            }
+            
+            
+        }
         // get sprite for keyIcons:
         //Sprite p1KeyIconSpr = p1KeyIcon.GetComponent<Image>().sprite;
 
