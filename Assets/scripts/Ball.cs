@@ -15,6 +15,8 @@ public class Ball : MonoBehaviour
 
     public int score = 0;
     public int reqScore = 3; // score required to complete the level.
+    public int pts = 0; // this is only used in arcade mode.
+    public int hiScorePts = 0; // this will be used later on.
 
     // declare bools for paddle directions:
     public bool pdl1MovingLeft = false;
@@ -23,7 +25,7 @@ public class Ball : MonoBehaviour
     public bool pdl2MovingRight = false;
 
     // declare int to hold lives:
-    public int lives = 300; // player gets three retries before game over.
+    public int lives = 3; // player gets three retries before game over.
 
     // Start is called before the first frame update
     public void Start()
@@ -53,6 +55,11 @@ public class Ball : MonoBehaviour
             hasStarted = true;
         }
 
+        if(pts < 0)
+        {
+            pts = 0;
+        }
+
         // check lives:
         if(lives <= 0)
         {
@@ -75,8 +82,10 @@ public class Ball : MonoBehaviour
         GameObject scrEdgeTop = findObjByName("ScreenEdgeT");
         GameObject scrEdgeBottom = findObjByName("ScreenEdgeB");
         GameObject livesCntrTxt = findObjByName("Lives counter");
+        GameObject arcadeScoreCntrTxt = findObjByName("ArcadeScoreCounter");
+        GameObject bg = findObjByName("BG");
 
-        // get rects for all of the above:
+        // get rects:
         Rect pdl1Rect = pdl1.GetComponent<RectTransform>().rect;
         Rect pdl2Rect = pdl2.GetComponent<RectTransform>().rect;
         Rect ballRect = ball.GetComponent<RectTransform>().rect; // looking for the rect of a ball feels weired.
@@ -90,11 +99,22 @@ public class Ball : MonoBehaviour
         BoxCollider2D scrTCol = scrEdgeTop.GetComponent<BoxCollider2D>();
         BoxCollider2D scrBCol = scrEdgeBottom.GetComponent<BoxCollider2D>();
 
-        // Get the text component for the lives counter object:
-        Text livesCounterTxt = livesCntrTxt.GetComponent<UnityEngine.UI.Text>();
+        // get the script compoenet from the BG:
+        BG modeScript = bg.GetComponent<BG>();
 
+        // set the reqScore value based on level:
+        reqScore = modeScript.requiredSP_Pellets;
+
+        // Get the text component for the lives counter and score counter objects:
+        Text livesCounterTxt = livesCntrTxt.GetComponent<UnityEngine.UI.Text>();
         // pretty much straight away output the lives counter to the screen:
         livesCounterTxt.text = "Lives: " + lives;
+
+        if (modeScript.arcadeMode)
+        {
+            Text arcadeScoreCounterTxt = arcadeScoreCntrTxt.GetComponent<UnityEngine.UI.Text>();
+            arcadeScoreCounterTxt.text = "Score: " + pts;
+        }
 
         // get the paddles movement:
         if (Input.GetKey("a"))
@@ -136,7 +156,11 @@ public class Ball : MonoBehaviour
         if (ballCol.IsTouching(pdl1Col))
         {
 
-            Debug.Log("Collision");
+            // check if arcade mode is enabled:
+            if (modeScript.arcadeMode)
+            {
+                pts++;
+            }
             // invert start direction:
             if(startDirection == 0)
             {
@@ -168,6 +192,12 @@ public class Ball : MonoBehaviour
         }
         if (ballCol.IsTouching(pdl2Col))
         {
+            // check if arcade mode is enabled:
+            if (modeScript.arcadeMode)
+            {
+                pts++;
+            }
+
             // invert start direction:
             if (startDirection == 0)
             {
@@ -201,16 +231,34 @@ public class Ball : MonoBehaviour
         // bounce off of the edges of the screen:
         if (ballCol.IsTouching(scrLCol))
         {
+            // check if arcade mode is enabled:
+            if (modeScript.arcadeMode)
+            {
+                pts += 3;
+            }
+
             movementAmountX = 3;
         }
 
         if (ballCol.IsTouching(scrRCol))
         {
+            // check if arcade mode is enabled:
+            if (modeScript.arcadeMode)
+            {
+                pts += 3;
+            }
+
             movementAmountX = -3;
         }
 
         if (ballCol.IsTouching(scrTCol))
         {
+            // check if arcade mode is enabled:
+            if (modeScript.arcadeMode)
+            {
+                pts -= 5;
+            }
+
             ball.transform.SetPositionAndRotation( new Vector3(Screen.width / 2, Screen.height / 2, 0),transform.rotation);
 
             // lose a life:
@@ -220,6 +268,12 @@ public class Ball : MonoBehaviour
 
         if (ballCol.IsTouching(scrBCol))
         {
+            // check if arcade mode is enabled:
+            if (modeScript.arcadeMode)
+            {
+                pts -= 5;
+            }
+
             ball.transform.SetPositionAndRotation(new Vector3(Screen.width / 2, Screen.height / 2, 0), transform.rotation);
             
             // lose a life:

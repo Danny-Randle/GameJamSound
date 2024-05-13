@@ -55,18 +55,18 @@ public class Paddle : MonoBehaviour
         
         if(powerUp == 1)
         {
-            speed = 10;
+            speed = 20;
         }
 
         if(powerUp == 2)
         {
             if(script.movementAmountX == 10 ||  script.movementAmountX == -10) 
             {
-                script.movementAmountX = script.movementAmountX / 2;
+                script.movementAmountX = 1;
             }
             if(script.movementAmountY == 10 || script.movementAmountY == -10)
             {
-                script.movementAmountY = script.movementAmountY / 2;
+                script.movementAmountY = 1;
             }
             else
             {
