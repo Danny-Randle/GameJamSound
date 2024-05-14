@@ -12,11 +12,17 @@ public class Ball : MonoBehaviour
     public bool hasStarted = false;
     public int movementAmountX = 0;
     public int movementAmountY = 0;
-
+    public bool collisionEnabled = true; // controls whether collision is enabled or not.
+    public bool movementEnabled = true; // controls whether the ball moves.
+    public bool isRespawning = false; // this stops you from losing all of your lives whilst you are respawning.
+    
+    // score and Endurance / arcade mode stuff:
     public int score = 0;
     public int reqScore = 3; // score required to complete the level.
     public int pts = 0; // this is only used in arcade mode.
     public int hiScorePts = 0; // this will be used later on.
+    public int ptsIncrCnt = 0;
+    public int ptsCntThrshHld = 10; // this is the threashold required to incrment the score, some power ups will change this.
 
     // declare bools for paddle directions:
     public bool pdl1MovingLeft = false;
@@ -49,9 +55,10 @@ public class Ball : MonoBehaviour
 
     public void respawnBall()
     {
+       
         ball.transform.SetPositionAndRotation(new Vector3(Screen.width / 2, Screen.height / 2, 0), transform.rotation);
-        // lose a life:
-        lives -= 1;
+        collisionEnabled = false;
+        movementEnabled = false;
     }
 
     // Update is called once per frame
@@ -63,13 +70,19 @@ public class Ball : MonoBehaviour
             hasStarted = true;
         }
 
+        ptsIncrCnt++;
+
         if(pts < 0)
         {
             pts = 0;
         }
+        if (pts % 100 == 0 && pts % 100 > 0)
+        {
+            lives += 1;
+        }
 
         // check lives:
-        if(lives <= 0)
+        if (lives <= 0)
         {
             Debug.Log("GAME OVER!");
             SceneManager.LoadScene(4); // this will load the game over screen.
@@ -119,8 +132,14 @@ public class Ball : MonoBehaviour
 
         if (modeScript.arcadeMode)
         {
+            if(ptsIncrCnt >= ptsCntThrshHld)
+            {
+                pts++; // make the score go up until the player is dead.
+                ptsIncrCnt = 0;
+            }
             Text arcadeScoreCounterTxt = arcadeScoreCntrTxt.GetComponent<UnityEngine.UI.Text>();
             arcadeScoreCounterTxt.text = "Score: " + pts;
+
         }
 
         // get the paddles movement:
@@ -148,12 +167,12 @@ public class Ball : MonoBehaviour
         }
 
         // chooseDirectionOfTravel:
-        if (startDirection == 0)
+        if (startDirection == 0 && movementEnabled)
         {
             movementAmountY = 10;
             ball.transform.Translate(movementAmountX, movementAmountY, 0); // move the ball down.
         }
-        else
+        else if(startDirection == 1 && movementEnabled)
         {
             movementAmountY = -10;
             ball.transform.Translate(movementAmountX, movementAmountY, 0); // move the ball up.
@@ -162,12 +181,6 @@ public class Ball : MonoBehaviour
         // sort out collision:
         if (ballCol.IsTouching(pdl1Col))
         {
-
-            // check if arcade mode is enabled:
-            if (modeScript.arcadeMode)
-            {
-                pts++;
-            }
             // invert start direction:
             if(startDirection == 0)
             {
@@ -199,12 +212,6 @@ public class Ball : MonoBehaviour
         }
         if (ballCol.IsTouching(pdl2Col))
         {
-            // check if arcade mode is enabled:
-            if (modeScript.arcadeMode)
-            {
-                pts++;
-            }
-
             // invert start direction:
             if (startDirection == 0)
             {
@@ -238,27 +245,15 @@ public class Ball : MonoBehaviour
         // bounce off of the edges of the screen:
         if (ballCol.IsTouching(scrLCol))
         {
-            // check if arcade mode is enabled:
-            if (modeScript.arcadeMode)
-            {
-                pts += 3;
-            }
-
             movementAmountX = 3;
         }
 
         if (ballCol.IsTouching(scrRCol))
         {
-            // check if arcade mode is enabled:
-            if (modeScript.arcadeMode)
-            {
-                pts += 3;
-            }
-
             movementAmountX = -3;
         }
 
-        if (ballCol.IsTouching(scrTCol))
+        if (ballCol.IsTouching(scrTCol) && collisionEnabled)
         {
             // check if arcade mode is enabled:
             if (modeScript.arcadeMode)
@@ -266,15 +261,18 @@ public class Ball : MonoBehaviour
                 pts -= 5;
             }
 
-
-            ball.transform.SetPositionAndRotation( new Vector3(-256, -500, 0),transform.rotation);
             Invoke("respawnBall", 3);
+            // lose a life:
+            lives -= 1;
+            collisionEnabled = true;
+            movementEnabled = true;
+            Debug.Log("LOSE A LIFE B");
 
             // fix the bug where your lives get reduced by 2.
             //lives += 1;
         }
 
-        if (ballCol.IsTouching(scrBCol))
+        if (ballCol.IsTouching(scrBCol) && collisionEnabled)
         {
             // check if arcade mode is enabled:
             if (modeScript.arcadeMode)
@@ -282,9 +280,13 @@ public class Ball : MonoBehaviour
                 pts -= 5;
             }
 
-
-            ball.transform.SetPositionAndRotation(new Vector3(-256, -500, 0), transform.rotation);
+            
             Invoke("respawnBall", 3);
+            // lose a life:
+            lives -= 1;
+            movementEnabled = true;
+            collisionEnabled = true;
+            Debug.Log("LOSE A LIFE");
 
             // fix the bug where your lives get reduced by 2.
             //lives += 1;

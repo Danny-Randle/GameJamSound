@@ -60,11 +60,11 @@ public class BadSP : MonoBehaviour
 
         if(dir == 0)
         {
-            ySpeed = -10 * speedMultY;
+            ySpeed = -10;
         }
         if(dir == 1)
         {
-            ySpeed = 10 * speedMultY;
+            ySpeed = 10;
         }
 
         // movement logic:
@@ -82,15 +82,15 @@ public class BadSP : MonoBehaviour
             dirCntr = 0;
         }
 
-        if (gameObject.transform.position[0] <= -150)
+        if (gameObject.transform.position[0] <= -350)
         {
-            gameObject.transform.SetPositionAndRotation(new Vector3(Screen.width + 90, Screen.height / 2, 0), transform.rotation);
+            gameObject.transform.SetPositionAndRotation(new Vector3(Screen.width + 200, Screen.height / 2, 0), transform.rotation);
         }
         dirCntr += 1;
         gameObject.transform.Translate(xSpeed, ySpeed, 0); // move the ball down.
 
         
-        if (spCol.IsTouching(ballCol))
+        if (spCol.IsTouching(ballCol) && script.collisionEnabled)
         {
             if (modeScript.arcadeMode == false)
             {
@@ -98,9 +98,10 @@ public class BadSP : MonoBehaviour
             }
             else
             {
-                gameObject.transform.SetPositionAndRotation(new Vector3(Screen.width + 90, Screen.height / 2, 0), transform.rotation);
+                gameObject.transform.SetPositionAndRotation(new Vector3(Screen.width + 200, Screen.height / 2, 0), transform.rotation);
             }
             script.lives --;
+            Debug.Log("COLLISION WITH BALL");
         }
         
 
