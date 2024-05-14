@@ -45,7 +45,6 @@ namespace ptsPelletScript
             BoxCollider2D ballBox = ball.GetComponent<BoxCollider2D>();
             Ball ballVarData = ball.GetComponent<Ball>();
             GameObject bg = findObjByName("BG");
-            Pts_Spawner spwnr = bg.GetComponent<Pts_Spawner>();
 
 
 

@@ -73,7 +73,7 @@ public class PwrUP : MonoBehaviour
 
         if (gameObject.transform.position[0] <= -150)
         {
-            gameObject.transform.SetPositionAndRotation(new Vector3(Screen.width + 90, Screen.height / 2, 0), transform.rotation);
+            Destroy(gameObject);
         }
         dirCntr += 1;
         gameObject.transform.Translate(xSpeed, ySpeed, 0); // move the ball down.

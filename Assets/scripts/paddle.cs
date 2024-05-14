@@ -35,6 +35,16 @@ public class Paddle : MonoBehaviour
         GameObject pdl2 = findObjByName("paddle2");
         GameObject ball = findObjByName("ball");
 
+        if (gameObject.transform.position[0] >= Screen.width + 135)
+        {
+            gameObject.transform.SetPositionAndRotation(new Vector3(-130, gameObject.transform.position[1], 0), transform.rotation);
+        }
+
+        if (gameObject.transform.position[0] <= -135)
+        {
+            gameObject.transform.SetPositionAndRotation(new Vector3(Screen.width+130, gameObject.transform.position[1], 0), transform.rotation);
+        }
+
         // get key graphic objects:
         GameObject p1KeyIcon = findObjByName("P1Key");
         GameObject p2KeyIcon = findObjByName("P2Key");
@@ -68,13 +78,6 @@ public class Paddle : MonoBehaviour
             {
                 script.movementAmountY = 1;
             }
-            else
-            {
-                script.movementAmountX = script.movementAmountX;
-                script.movementAmountY = script.movementAmountY;
-            }
-            
-            
         }
         // get sprite for keyIcons:
         //Sprite p1KeyIconSpr = p1KeyIcon.GetComponent<Image>().sprite;

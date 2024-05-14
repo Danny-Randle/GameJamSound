@@ -53,13 +53,24 @@ public class Ball : MonoBehaviour
         return score;
     }
 
+    public void bringBallBackIntoPlay()
+    {
+        collisionEnabled = true;
+        movementEnabled = true;
+        isRespawning = false;
+    }
+
     public void respawnBall()
     {
-       
+        isRespawning = true;
         ball.transform.SetPositionAndRotation(new Vector3(Screen.width / 2, Screen.height / 2, 0), transform.rotation);
         collisionEnabled = false;
         movementEnabled = false;
+        Debug.Log("movementEnabled: " + movementEnabled);
+        Invoke("bringBallBackIntoPlay", 3);
     }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -261,12 +272,10 @@ public class Ball : MonoBehaviour
                 pts -= 5;
             }
 
-            Invoke("respawnBall", 3);
+            Invoke("respawnBall", 0);
             // lose a life:
             lives -= 1;
-            collisionEnabled = true;
-            movementEnabled = true;
-            Debug.Log("LOSE A LIFE B");
+            Debug.Log("movementEnabled: " + movementEnabled);
 
             // fix the bug where your lives get reduced by 2.
             //lives += 1;
@@ -281,12 +290,10 @@ public class Ball : MonoBehaviour
             }
 
             
-            Invoke("respawnBall", 3);
+            Invoke("respawnBall", 0);
             // lose a life:
             lives -= 1;
-            movementEnabled = true;
-            collisionEnabled = true;
-            Debug.Log("LOSE A LIFE");
+            Debug.Log("movementEnabled: "+movementEnabled);
 
             // fix the bug where your lives get reduced by 2.
             //lives += 1;

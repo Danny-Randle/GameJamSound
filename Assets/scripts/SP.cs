@@ -70,10 +70,10 @@ public class SP : MonoBehaviour
 
         if (gameObject.transform.position[0] <= -150)
         {
-            gameObject.transform.SetPositionAndRotation(new Vector3(Screen.width + 90, Screen.height / 2, 0), transform.rotation);
+            gameObject.transform.SetPositionAndRotation(new Vector3(Screen.width, gameObject.transform.position[1], 1), transform.rotation);
         }
         dirCntr += 1;
-        gameObject.transform.Translate(xSpeed, ySpeed, 0); // move the ball down.
+        gameObject.transform.Translate(xSpeed, 0, 0); // move the ball down.
 
 
         if (spCol.IsTouching(ballCol))
