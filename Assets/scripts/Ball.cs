@@ -23,6 +23,7 @@ public class Ball : MonoBehaviour
     public bool pdl1MovingRight = false;
     public bool pdl2MovingLeft = false;
     public bool pdl2MovingRight = false;
+    public GameObject ball; // ball placeholder.
 
     // declare int to hold lives:
     public int lives = 3; // player gets three retries before game over.
@@ -30,7 +31,7 @@ public class Ball : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-       
+        ball = findObjByName("ball");
     }
 
     // method to call unity's object finder and return it's GameObject:
@@ -44,6 +45,13 @@ public class Ball : MonoBehaviour
     {
         score++;
         return score;
+    }
+
+    public void respawnBall()
+    {
+        ball.transform.SetPositionAndRotation(new Vector3(Screen.width / 2, Screen.height / 2, 0), transform.rotation);
+        // lose a life:
+        lives -= 1;
     }
 
     // Update is called once per frame
@@ -76,7 +84,6 @@ public class Ball : MonoBehaviour
         // get objects:
         GameObject pdl1 = findObjByName("paddle1");
         GameObject pdl2 = findObjByName("paddle2");
-        GameObject ball = findObjByName("ball");
         GameObject scrEdgeL = findObjByName("ScreenEdgeL");
         GameObject scrEdgeR = findObjByName("ScreenEdgeR");
         GameObject scrEdgeTop = findObjByName("ScreenEdgeT");
@@ -259,11 +266,12 @@ public class Ball : MonoBehaviour
                 pts -= 5;
             }
 
-            ball.transform.SetPositionAndRotation( new Vector3(Screen.width / 2, Screen.height / 2, 0),transform.rotation);
 
-            // lose a life:
-            lives -= 1;
+            ball.transform.SetPositionAndRotation( new Vector3(-256, -500, 0),transform.rotation);
+            Invoke("respawnBall", 3);
 
+            // fix the bug where your lives get reduced by 2.
+            //lives += 1;
         }
 
         if (ballCol.IsTouching(scrBCol))
@@ -274,10 +282,14 @@ public class Ball : MonoBehaviour
                 pts -= 5;
             }
 
-            ball.transform.SetPositionAndRotation(new Vector3(Screen.width / 2, Screen.height / 2, 0), transform.rotation);
+
+            ball.transform.SetPositionAndRotation(new Vector3(-256, -500, 0), transform.rotation);
+            Invoke("respawnBall", 3);
+
+            // fix the bug where your lives get reduced by 2.
+            //lives += 1;
+
             
-            // lose a life:
-            lives -= 1;
 
         }
 
