@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,7 +16,8 @@ public class Ball : MonoBehaviour
     public bool collisionEnabled = true; // controls whether collision is enabled or not.
     public bool movementEnabled = true; // controls whether the ball moves.
     public bool isRespawning = false; // this stops you from losing all of your lives whilst you are respawning.
-    
+    public bool hasFinishedLoading = false; // this stops the game from over reading data.
+
     // score and Endurance / arcade mode stuff:
     public int score = 0;
     public int reqScore = 3; // score required to complete the level.
@@ -31,13 +33,111 @@ public class Ball : MonoBehaviour
     public bool pdl2MovingRight = false;
     public GameObject ball; // ball placeholder.
 
+    // decalre mode bool:
+    public bool isArcadeMode;
+
     // declare int to hold lives:
     public int lives = 3; // player gets three retries before game over.
+
+    // Save Data management:
+    public string ARCADE_HI_SCORE_FNAME = "hiScore.dat";
+    public string DATA_LOCATION = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\saveData";
+
+    // hiScore value:
+    public int hiScore = 0;
+
+
+
 
     // Start is called before the first frame update
     public void Start()
     {
         ball = findObjByName("ball");
+    }
+
+    // methods to load data:
+    public int readIntDataFromFile(string filePath)
+    {
+        try
+        {
+            // create a new stream reader object:
+            StreamReader dataLdr = new StreamReader(filePath);
+
+            // parse the data as a 32-Bit int and then return it:
+            int dataLn = Int32.Parse(dataLdr.ReadLine()); // read the first line of data.
+
+            // close the file:
+            dataLdr.Close();
+
+            // load was a success.
+            return dataLn;
+        }
+        catch(Exception err)
+        {
+            // data read failed:
+            Debug.Log("[ E001 ] "+err.Message); // display an error if the file cant be opened.
+            return -1; // error value, it is impossible to have -1 as a hiscore.
+        }
+    }
+
+    public string readStrDataFromFile(string filePath)
+    {
+        try
+        {
+            // create a new stream reader object:
+            StreamReader dataLdr = new StreamReader(filePath);
+
+            string dataLn = dataLdr.ReadLine(); // read the first line of data.
+
+            // close the file:
+            dataLdr.Close();
+
+            // load was a success.
+            return dataLn;
+        }
+        catch (Exception err)
+        {
+            // data read failed:
+            Debug.Log("[ E001 ] " + err.Message); // display an error if the file cant be opened.
+            return "E"; // error value, it is impossible to have -1 as a hiscore.
+        }
+    }
+
+    // method to write save data:
+    public void writeDataToFile(string fileDir, string fileName, string data)
+    {
+        //declare local path var:
+        string fPath = fileDir;
+        string fName = fileName;
+        string fData = data;
+
+        // make sure folder for saveData already exists:
+        DirectoryInfo dir = new DirectoryInfo(fPath);
+
+        try
+        {
+            if (dir.Exists)
+            {
+                Debug.Log("[  OK  ] saveData directory already exists so saving data now.");
+                File.WriteAllText(Path.Combine(fPath, fName), fData);
+                return; // end execution.
+            }
+
+            // at this point the system has determined that the dir does not exist:
+            dir.Create();
+            Debug.Log("[  OK  ] Created saveData directory.");
+            File.WriteAllText(Path.Combine(fPath, fName), fData);
+            Debug.Log("[  OK  ] Saved data to saveData directory successfully.");
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("[ E002 ] " + e.ToString());
+        }
+    }
+
+    public void delayMethod()
+    {
+        return;
     }
 
     // method to call unity's object finder and return it's GameObject:
@@ -60,17 +160,26 @@ public class Ball : MonoBehaviour
         isRespawning = false;
     }
 
+    public void blinkBall()
+    {
+        gameObject.GetComponent<Image>().color = new Color32(255, 255, 225, 0);
+    }
+
+    public void blinkBallOn()
+    {
+        gameObject.GetComponent<Image>().color = new Color32(255, 255, 225, 100);
+    }
+
     public void respawnBall()
     {
         isRespawning = true;
         ball.transform.SetPositionAndRotation(new Vector3(Screen.width / 2, Screen.height / 2, 0), transform.rotation);
         collisionEnabled = false;
         movementEnabled = false;
-        Debug.Log("movementEnabled: " + movementEnabled);
+
         Invoke("bringBallBackIntoPlay", 3);
     }
 
-    
 
     // Update is called once per frame
     void Update()
@@ -81,28 +190,46 @@ public class Ball : MonoBehaviour
             hasStarted = true;
         }
 
+        // only run this if it is arcade mode and it hasn't loaded yet.
+        if (isArcadeMode && !hasFinishedLoading)
+        {
+            // try to read the high score;
+            hiScore = readIntDataFromFile(DATA_LOCATION + "\\" + ARCADE_HI_SCORE_FNAME);
+            if(hiScore == -1)
+            {
+                hiScore = 0;
+            }
+
+            hasFinishedLoading = true;
+        }
+
+        // check lives:
+        if (lives <= 0)
+        {
+            // if it is arcade mode save the hi score, this will only happen when the player's current score beats the last hi score.
+            if (isArcadeMode)
+            {
+                writeDataToFile(DATA_LOCATION, ARCADE_HI_SCORE_FNAME, hiScore.ToString());
+                writeDataToFile(DATA_LOCATION, "lastScore.dat", pts.ToString()); // save last score to show on game over screen.
+                SceneManager.LoadScene(14); // this will load the game over screen arcade edition.
+            }
+            else
+            {
+                SceneManager.LoadScene(4); // this will load the game over screen.
+            }
+            
+        }
+
         ptsIncrCnt++;
 
         if(pts < 0)
         {
             pts = 0;
         }
-        if (pts % 100 == 0 && pts % 100 > 0)
-        {
-            lives += 1;
-        }
 
-        // check lives:
-        if (lives <= 0)
+        if(pts > hiScore)
         {
-            Debug.Log("GAME OVER!");
-            SceneManager.LoadScene(4); // this will load the game over screen.
-        }
-
-        if(score == reqScore)
-        {
-            Debug.Log("LEVEL Complete");
-            SceneManager.LoadScene(3); // this will load the level complete screen.
+            hiScore = pts;
         }
 
         // get objects:
@@ -115,6 +242,20 @@ public class Ball : MonoBehaviour
         GameObject livesCntrTxt = findObjByName("Lives counter");
         GameObject arcadeScoreCntrTxt = findObjByName("ArcadeScoreCounter");
         GameObject bg = findObjByName("BG");
+        GameObject cntDwnTxt = findObjByName("cntDwnTxt");
+        GameObject hiScoreTxt = findObjByName("HISCORE");
+
+        // get text for cntDwnTxt:
+
+        if(isArcadeMode == true)
+        {
+            Text hiScoreTxtLbl = hiScoreTxt.GetComponent<UnityEngine.UI.Text>();
+            hiScoreTxtLbl.text = "HI-SCORE: "+hiScore.ToString();
+        }
+        else
+        {
+            //Text cntDwnLabel = cntDwnTxt.GetComponent<UnityEngine.UI.Text>();
+        }
 
         // get rects:
         Rect pdl1Rect = pdl1.GetComponent<RectTransform>().rect;
@@ -132,6 +273,17 @@ public class Ball : MonoBehaviour
 
         // get the script compoenet from the BG:
         BG modeScript = bg.GetComponent<BG>();
+
+        // use the levelID to store level progress data:
+        if (score == reqScore)
+        {
+            // write data to the level's file to let the rest of the game know it is complete.
+            writeDataToFile(DATA_LOCATION, modeScript.levelID+".dat", "COMPLETE");
+            SceneManager.LoadScene(3); // this will load the level complete screen.
+        }
+
+        // set arcadeMode bool:
+        isArcadeMode = modeScript.arcadeMode;
 
         // set the reqScore value based on level:
         reqScore = modeScript.requiredSP_Pellets;
@@ -152,6 +304,8 @@ public class Ball : MonoBehaviour
             arcadeScoreCounterTxt.text = "Score: " + pts;
 
         }
+
+        
 
         // get the paddles movement:
         if (Input.GetKey("a"))
@@ -273,12 +427,9 @@ public class Ball : MonoBehaviour
             }
 
             Invoke("respawnBall", 0);
+
             // lose a life:
             lives -= 1;
-            Debug.Log("movementEnabled: " + movementEnabled);
-
-            // fix the bug where your lives get reduced by 2.
-            //lives += 1;
         }
 
         if (ballCol.IsTouching(scrBCol) && collisionEnabled)
@@ -289,17 +440,10 @@ public class Ball : MonoBehaviour
                 pts -= 5;
             }
 
-            
             Invoke("respawnBall", 0);
+
             // lose a life:
             lives -= 1;
-            Debug.Log("movementEnabled: "+movementEnabled);
-
-            // fix the bug where your lives get reduced by 2.
-            //lives += 1;
-
-            
-
         }
 
     }

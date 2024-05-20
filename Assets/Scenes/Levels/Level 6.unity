@@ -1397,7 +1397,10 @@ GameObject:
   - component: {fileID: 1674597245}
   - component: {fileID: 1674597244}
   - component: {fileID: 1674597243}
+  - component: {fileID: 1674597247}
   - component: {fileID: 1674597246}
+  - component: {fileID: 1674597249}
+  - component: {fileID: 1674597250}
   m_Layer: 0
   m_Name: BG
   m_TagString: Untagged
@@ -1571,9 +1574,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arcadeMode: 0
-  requiredSP_Pellets: 4
-  levelName: 'Level 3 - Required Notes: 4'
-  levelID: 3
+  requiredSP_Pellets: 6
+  levelName: 'Level 6 - Required notes: 6'
+  levelID: 6
 --- !u!114 &1674597243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1588,11 +1591,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spwnTmrSP: 0
   objCntr: 0
-  spwnIntervalSP: 90
+  spwnIntervalSP: 45
   spwnAmntSP: 2
   SpPrefab: {fileID: 5793598424162245680, guid: ebfc335d3bdf13f44b3521f778b529df, type: 3}
   hasSpawned: 0
-  spawnPos: 800
+  spawnPos: 700
 --- !u!114 &1674597244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1606,14 +1609,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spwnTmrPwrUp: 0
-  spwnIntervalPwrUp: 240
-  spwnAmntPwrUp: 1
+  spwnIntervalPwrUp: 135
+  spwnAmntPwrUp: 3
   cntr: 0
   incr: 0
   objCntr: 0
   pwrUpPrefab: {fileID: 8461195828764521589, guid: d58e30c46201999498627174c90f42c6, type: 3}
   hasSpawned: 0
-  spawnPos: 520
+  spawnPos: 480
 --- !u!114 &1674597245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1629,10 +1632,10 @@ MonoBehaviour:
   spwnTmrBadSP: 0
   objCntr: 0
   spwnIntervalBadSP: 90
-  spwnAmntBadSP: 2
+  spwnAmntBadSP: 6
   badSpPrefab: {fileID: 3264948471135228666, guid: a45d52c2159b58f49938718da56086f2, type: 3}
   hasSpawned: 0
-  spawnPos: 200
+  spawnPos: 500
   arcadeMode: 0
 --- !u!114 &1674597246
 MonoBehaviour:
@@ -1649,10 +1652,70 @@ MonoBehaviour:
   spwnTmrSP: 0
   objCntr: 0
   spwnIntervalSP: 135
-  spwnAmntSP: 2
+  spwnAmntSP: 1
   SpPrefab: {fileID: 5793598424162245680, guid: ebfc335d3bdf13f44b3521f778b529df, type: 3}
   hasSpawned: 0
-  spawnPos: 200
+  spawnPos: 900
+--- !u!114 &1674597247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674597236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c28390b0023f7844998b5532233eb09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spwnTmrSP: 0
+  objCntr: 0
+  spwnIntervalSP: 90
+  spwnAmntSP: 3
+  SpPrefab: {fileID: 5793598424162245680, guid: ebfc335d3bdf13f44b3521f778b529df, type: 3}
+  hasSpawned: 0
+  spawnPos: 300
+--- !u!114 &1674597249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674597236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bca58d1929a91d4db9941e840838987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spwnTmrPwrUp: 0
+  spwnIntervalPwrUp: 75
+  spwnAmntPwrUp: 3
+  cntr: 0
+  incr: 0
+  objCntr: 0
+  pwrUpPrefab: {fileID: 8461195828764521589, guid: d58e30c46201999498627174c90f42c6, type: 3}
+  hasSpawned: 0
+  spawnPos: 640
+--- !u!114 &1674597250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674597236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b67540421bbfc44b4a4e9916e9ea1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spwnTmrBadSP: 0
+  objCntr: 0
+  spwnIntervalBadSP: 300
+  spwnAmntBadSP: 6
+  badSpPrefab: {fileID: 3264948471135228666, guid: a45d52c2159b58f49938718da56086f2, type: 3}
+  hasSpawned: 0
+  spawnPos: 800
+  arcadeMode: 0
 --- !u!1 &1798396510
 GameObject:
   m_ObjectHideFlags: 0

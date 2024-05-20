@@ -1,4 +1,5 @@
 using System.Collections;
+using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,16 @@ public class SetResolution : MonoBehaviour
     void Start()
     {
         
+    }
+
+    public bool writeDataToFile(string filePath, string data)
+    {
+        // write the data from the data param to the file in the filepath param:
+        using (StreamWriter outputFile = new StreamWriter(filePath))
+        {
+            outputFile.Write(data);
+            return true;
+        }
     }
 
     public void setResFHD()

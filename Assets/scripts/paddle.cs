@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Paddle : MonoBehaviour
 {
     public int powerUp = 0; // 0 = none, 1 = double length, 2 = double speed, 3 = both.
-    public int speed = 5; // default speed of 5.
+    public int speed = 20; // default speed of 5.
     public bool isSpeedHalved = false;
     // Do the same for the second player's icons:
 
@@ -56,45 +56,6 @@ public class Paddle : MonoBehaviour
 
         // get the script for the Ball:
         Ball script = ball.GetComponent<Ball>();
-
-        // power up logic:
-        if (powerUp == 0)
-        {
-            speed = 5;
-        }
-        
-        if(powerUp == 1)
-        {
-            speed = 20;
-        }
-
-        if(powerUp == 2)
-        {
-            if(script.movementAmountX == 10 ||  script.movementAmountX == -10) 
-            {
-                script.movementAmountX = 1;
-            }
-            if(script.movementAmountY == 10 || script.movementAmountY == -10)
-            {
-                script.movementAmountY = 1;
-            }
-        }
-        // get sprite for keyIcons:
-        //Sprite p1KeyIconSpr = p1KeyIcon.GetComponent<Image>().sprite;
-
-            // try swapping sprites:
-            //p1KeyIcon.GetComponent<Image>().sprite = p1IconPool[rngIntP1];
-            //p2KeyIcon.GetComponent<Image>().sprite = p2IconPool[rngIntP2];
-
-            //Debug.Log("Current Sprite Index sprite:" + p1IconPool[rngIntP1]);
-
-            // Load the appropriate image and set it as the sprite for the key icon:
-            //p1KeyIconSpr = Resources.Load(keyGraphicP1, typeof(Sprite)) as Sprite;
-            //Debug.Log(keyGraphicP1);
-
-            // output to debug console and jump the key change counter by 15 so the system doesn't get stuck cycling through keys:
-            //Debug.Log("P1 Key: " + currentKeyP1 + " P2 Key: " + currentKeyP2);
-            //keyChangeCntr += 15;
 
         // get the input for the paddles:
         if (Input.GetKey("a"))

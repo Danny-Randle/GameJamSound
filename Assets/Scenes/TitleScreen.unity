@@ -123,94 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &129042670
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 129042672}
-  - component: {fileID: 129042671}
-  m_Layer: 0
-  m_Name: SettingsLdr
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &129042671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 129042670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d0cbaeeda95433489c475218333048e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &129042672
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 129042670}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 950.56696, y: 563.706, z: -22.776308}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &186355209
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 186355211}
-  - component: {fileID: 186355210}
-  m_Layer: 0
-  m_Name: QuitMgr
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &186355210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 186355209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca703ee14ff17bc4489513ec665e21ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &186355211
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 186355209}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1169.1809, y: 433.76328, z: -23.866457}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &645972955
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,8 +249,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -632, y: -173}
-  m_SizeDelta: {x: 737.2305, y: 143.4588}
+  m_AnchoredPosition: {x: -540, y: -172}
+  m_SizeDelta: {x: 887.6168, y: 143.4588}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &685355737
 MonoBehaviour:
@@ -373,7 +285,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SOUND JAM
+  m_Text: WAVE BOUNCE
 --- !u!222 &685355738
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -996,8 +908,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -623.62, y: -180.6}
-  m_SizeDelta: {x: 737.2305, y: 143.4588}
+  m_AnchoredPosition: {x: -529.9106, y: -179.6}
+  m_SizeDelta: {x: 887.6168, y: 143.4588}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2056798309
 MonoBehaviour:
@@ -1032,7 +944,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SOUND JAM
+  m_Text: WAVE BOUNCE
 --- !u!222 &2056798310
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1049,5 +961,3 @@ SceneRoots:
   - {fileID: 1949955499}
   - {fileID: 990243048}
   - {fileID: 1726795265}
-  - {fileID: 186355211}
-  - {fileID: 129042672}

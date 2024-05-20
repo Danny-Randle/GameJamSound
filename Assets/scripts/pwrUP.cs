@@ -41,8 +41,7 @@ public class PwrUP : MonoBehaviour
 
         // get collider boxes:
         BoxCollider2D ballCol = ball.GetComponent<BoxCollider2D>();
-        Paddle script = pdl1.GetComponent<Paddle>();
-        Paddle script2 = pdl2.GetComponent<Paddle>();
+        Ball ballScript = ball.GetComponent<Ball>();
 
         // get this object's boxCollider:
         BoxCollider2D pwrUpCol = gameObject.GetComponent<BoxCollider2D>();
@@ -81,16 +80,7 @@ public class PwrUP : MonoBehaviour
 
         if (pwrUpCol.IsTouching(ballCol))
         {
-            if(script.powerUp == 1)
-            {
-                script.powerUp = 2;
-                script2.powerUp = 2;
-            }
-            else
-            {
-                script.powerUp = 1;
-                script2.powerUp = 1;
-            }
+            ballScript.lives++;
             
             Destroy(gameObject);
         }

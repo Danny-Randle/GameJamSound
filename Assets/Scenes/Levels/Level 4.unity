@@ -301,7 +301,6 @@ RectTransform:
   - {fileID: 1360848312}
   - {fileID: 624579448}
   - {fileID: 1798396511}
-  - {fileID: 920710774}
   - {fileID: 1085292428}
   - {fileID: 197561355}
   - {fileID: 1256074865}
@@ -631,98 +630,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &920710773
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 920710774}
-  - component: {fileID: 920710776}
-  - component: {fileID: 920710775}
-  m_Layer: 5
-  m_Name: buildInf
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &920710774
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920710773}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 260338350}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 739.04913, y: 486.53784}
-  m_SizeDelta: {x: 1478.0984, y: 663.3538}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &920710775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920710773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.87485456, g: 1, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: ef8c7cdbe3ec35e4a9e506f53d733d73, type: 3}
-    m_FontSize: 28
-    m_FontStyle: 3
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "TEMPLATE VERSION 1.1\nTHIS IS A TEMPLATE ALWAYS MAKE A COPY BEFORE MAKING
-    CHANGES.\n\nRed Squares are Bad pellets they cause the player to lose a life.\n\nYellow
-    Squares are the SP_Pellets (SP stands for SPecial), get three of these and the
-    level is complete.\n\nLight Blue pellets are power ups, if you get one, you get
-    sped up by a factor of 4. if you get two, on top of you extra speed the ball
-    has its speed reduced by a factor of 4.\n\nIf you want to increase the number
-    of Pellets (Any type) then simply copy and paste them and drag them where ever
-    you want them to spawn from, just make sure to click on BG in the Hierarchy and
-    then change the \"requiredSP\" value in the unity inspector. Do not edit the
-    raw code as all code for levels has been designed to be edited from the inspector
-    so that each level scene may have its own name and requiredSP. Also do not turn
-    on arcade mode this will cause the game to shit the bed.\nFinally remember to
-    delete this text box once you've finished making a level.\n\nRemember: To each
-    his own, to dog the bone.\n - Danny"
---- !u!222 &920710776
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920710773}
-  m_CullTransparentMesh: 1
 --- !u!1 &965433697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,7 +1304,11 @@ MonoBehaviour:
   pdl2MovingLeft: 0
   pdl2MovingRight: 0
   ball: {fileID: 0}
-  lives: 999
+  isArcadeMode: 0
+  lives: 5
+  levelProgDir: ../..
+  ARCADE_HI_SCORE_DIR: ../..
+  ARCADE_HI_SCORE_FNAME: hiScore.dat
 --- !u!61 &1360848316
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1482,11 +1393,11 @@ GameObject:
   - component: {fileID: 1674597239}
   - component: {fileID: 1674597238}
   - component: {fileID: 1674597240}
-  - component: {fileID: 1674597241}
   - component: {fileID: 1674597242}
   - component: {fileID: 1674597245}
   - component: {fileID: 1674597244}
   - component: {fileID: 1674597243}
+  - component: {fileID: 1674597246}
   m_Layer: 0
   m_Name: BG
   m_TagString: Untagged
@@ -1647,18 +1558,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1674597241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674597236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 750e71ef71505994ebb3263461329a4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1674597242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1673,7 +1572,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arcadeMode: 0
   requiredSP_Pellets: 3
-  levelName: Template Level Name
+  levelName: 'Level 4 - Required Notes: 3'
+  levelID: 4
 --- !u!114 &1674597243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1688,11 +1588,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spwnTmrSP: 0
   objCntr: 0
-  spwnIntervalSP: 450
-  spwnAmntSP: 10
+  spwnIntervalSP: 320
+  spwnAmntSP: 3
   SpPrefab: {fileID: 5793598424162245680, guid: ebfc335d3bdf13f44b3521f778b529df, type: 3}
   hasSpawned: 0
-  spawnPos: 80
+  spawnPos: 450
 --- !u!114 &1674597244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1707,7 +1607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spwnTmrPwrUp: 0
   spwnIntervalPwrUp: 450
-  spwnAmntPwrUp: 10
+  spwnAmntPwrUp: 0
   cntr: 0
   incr: 0
   objCntr: 0
@@ -1728,11 +1628,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spwnTmrBadSP: 0
   objCntr: 0
-  spwnIntervalBadSP: 4000
-  spwnAmntBadSP: 10
+  spwnIntervalBadSP: 240
+  spwnAmntBadSP: 3
   badSpPrefab: {fileID: 3264948471135228666, guid: a45d52c2159b58f49938718da56086f2, type: 3}
   hasSpawned: 0
   spawnPos: 125
+  arcadeMode: 0
+--- !u!114 &1674597246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674597236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b67540421bbfc44b4a4e9916e9ea1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spwnTmrBadSP: 0
+  objCntr: 0
+  spwnIntervalBadSP: 240
+  spwnAmntBadSP: 6
+  badSpPrefab: {fileID: 3264948471135228666, guid: a45d52c2159b58f49938718da56086f2, type: 3}
+  hasSpawned: 0
+  spawnPos: 725
+  arcadeMode: 0
 --- !u!1 &1798396510
 GameObject:
   m_ObjectHideFlags: 0

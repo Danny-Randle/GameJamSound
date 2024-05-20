@@ -8,6 +8,7 @@ public class BG : MonoBehaviour
     public bool arcadeMode = true; // sets arcade mode;
     public int requiredSP_Pellets = 3; // change this value in the editor per level. It will have no consequence in arcade mode.
     public string levelName = "Template Level Name"; // this will be the level's name change this in the unity editor per level scene.
+    public string levelID = "0"; // this is the level ID it is used for save data system to know which level you are on.
     // Start is called before the first frame update
     void Start()
     {

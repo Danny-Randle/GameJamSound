@@ -1397,7 +1397,6 @@ GameObject:
   - component: {fileID: 1674597245}
   - component: {fileID: 1674597244}
   - component: {fileID: 1674597243}
-  - component: {fileID: 1674597246}
   m_Layer: 0
   m_Name: BG
   m_TagString: Untagged
@@ -1571,9 +1570,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arcadeMode: 0
-  requiredSP_Pellets: 4
-  levelName: 'Level 3 - Required Notes: 4'
-  levelID: 3
+  requiredSP_Pellets: 3
+  levelName: Level 5 - 3 Notes required
+  levelID: 5
 --- !u!114 &1674597243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1588,11 +1587,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spwnTmrSP: 0
   objCntr: 0
-  spwnIntervalSP: 90
-  spwnAmntSP: 2
+  spwnIntervalSP: 320
+  spwnAmntSP: 3
   SpPrefab: {fileID: 5793598424162245680, guid: ebfc335d3bdf13f44b3521f778b529df, type: 3}
   hasSpawned: 0
-  spawnPos: 800
+  spawnPos: 700
 --- !u!114 &1674597244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1606,14 +1605,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spwnTmrPwrUp: 0
-  spwnIntervalPwrUp: 240
+  spwnIntervalPwrUp: 220
   spwnAmntPwrUp: 1
   cntr: 0
   incr: 0
   objCntr: 0
   pwrUpPrefab: {fileID: 8461195828764521589, guid: d58e30c46201999498627174c90f42c6, type: 3}
   hasSpawned: 0
-  spawnPos: 520
+  spawnPos: 150
 --- !u!114 &1674597245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1628,31 +1627,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spwnTmrBadSP: 0
   objCntr: 0
-  spwnIntervalBadSP: 90
-  spwnAmntBadSP: 2
+  spwnIntervalBadSP: 320
+  spwnAmntBadSP: 3
   badSpPrefab: {fileID: 3264948471135228666, guid: a45d52c2159b58f49938718da56086f2, type: 3}
   hasSpawned: 0
-  spawnPos: 200
+  spawnPos: 250
   arcadeMode: 0
---- !u!114 &1674597246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674597236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c28390b0023f7844998b5532233eb09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spwnTmrSP: 0
-  objCntr: 0
-  spwnIntervalSP: 135
-  spwnAmntSP: 2
-  SpPrefab: {fileID: 5793598424162245680, guid: ebfc335d3bdf13f44b3521f778b529df, type: 3}
-  hasSpawned: 0
-  spawnPos: 200
 --- !u!1 &1798396510
 GameObject:
   m_ObjectHideFlags: 0

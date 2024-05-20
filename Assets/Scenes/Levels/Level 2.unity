@@ -1304,7 +1304,11 @@ MonoBehaviour:
   pdl2MovingLeft: 0
   pdl2MovingRight: 0
   ball: {fileID: 0}
+  isArcadeMode: 0
   lives: 5
+  levelProgDir: ../..
+  ARCADE_HI_SCORE_DIR: ../..
+  ARCADE_HI_SCORE_FNAME: hiScore.dat
 --- !u!61 &1360848316
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1389,7 +1393,6 @@ GameObject:
   - component: {fileID: 1674597239}
   - component: {fileID: 1674597238}
   - component: {fileID: 1674597240}
-  - component: {fileID: 1674597241}
   - component: {fileID: 1674597242}
   - component: {fileID: 1674597245}
   - component: {fileID: 1674597244}
@@ -1555,18 +1558,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1674597241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674597236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 750e71ef71505994ebb3263461329a4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1674597242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1582,6 +1573,7 @@ MonoBehaviour:
   arcadeMode: 0
   requiredSP_Pellets: 2
   levelName: 'Level 2 - Required Notes: 2'
+  levelID: 2
 --- !u!114 &1674597243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1641,6 +1633,7 @@ MonoBehaviour:
   badSpPrefab: {fileID: 3264948471135228666, guid: a45d52c2159b58f49938718da56086f2, type: 3}
   hasSpawned: 0
   spawnPos: 125
+  arcadeMode: 0
 --- !u!114 &1674597246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1660,6 +1653,7 @@ MonoBehaviour:
   badSpPrefab: {fileID: 3264948471135228666, guid: a45d52c2159b58f49938718da56086f2, type: 3}
   hasSpawned: 0
   spawnPos: 950
+  arcadeMode: 0
 --- !u!1 &1798396510
 GameObject:
   m_ObjectHideFlags: 0

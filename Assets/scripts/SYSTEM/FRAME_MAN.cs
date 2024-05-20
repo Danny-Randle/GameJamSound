@@ -10,7 +10,7 @@ public class FRAME_MAN : MonoBehaviour
         // cap game FPS to 60 to stop physics issues:
         Application.targetFrameRate = 60;
 
-        // set refreshrate to be 60 and res to be 16:9 FHD, the user will be able to change this later:
+        // set refreshrate to be 60 and res to be 1920 x 1080, the user will be able to change this later:
         Screen.SetResolution(1920, 1080, FullScreenMode.ExclusiveFullScreen, new RefreshRate() { numerator = 60, denominator = 1 });
 
     }
