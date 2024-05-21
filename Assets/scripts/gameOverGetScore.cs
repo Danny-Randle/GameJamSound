@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class gameOverGetScore : MonoBehaviour
 {
 
-    public string DATA_LOCATION = "../../Test";
+    //public string DATA_LOCATION = "../../Test";
 
 
     // Start is called before the first frame update
@@ -53,7 +53,7 @@ public class gameOverGetScore : MonoBehaviour
         Text scoreTxt = score.GetComponent<UnityEngine.UI.Text>();
 
         // load the score:
-        string scoreData = readStrDataFromFile(DATA_LOCATION + "\\lastScore.dat");
+        string scoreData = readStrDataFromFile(Application.persistentDataPath + "\\lastScore.dat");
 
         // draw it to the screen:
         scoreTxt.text = "SCORE: "+ scoreData;
