@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class gameOverGetScore : MonoBehaviour
 {
 
-    public string DATA_LOCATION = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\saveData";
+    public string DATA_LOCATION = "../../Test";
 
 
     // Start is called before the first frame update
@@ -36,7 +36,7 @@ public class gameOverGetScore : MonoBehaviour
         {
             // data read failed:
             Debug.Log("[ E001 ] " + err.Message); // display an error if the file cant be opened.
-            return "E"; // error value, it is impossible to have -1 as a hiscore.
+            return "E:"+ err.Message; // error value, it is impossible to have -1 as a hiscore.
         }
     }
 
@@ -57,6 +57,7 @@ public class gameOverGetScore : MonoBehaviour
 
         // draw it to the screen:
         scoreTxt.text = "SCORE: "+ scoreData;
-        
+        Debug.Log(Application.persistentDataPath);
+
     }
 }

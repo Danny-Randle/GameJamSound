@@ -1389,7 +1389,7 @@ MonoBehaviour:
   isArcadeMode: 0
   lives: 9
   ARCADE_HI_SCORE_FNAME: hiScore.dat
-  DATA_LOCATION: C:\Users\theve\Documents\saveData
+  DATA_LOCATION: ../../Test
   hiScore: 0
 --- !u!61 &1360848316
 BoxCollider2D:
