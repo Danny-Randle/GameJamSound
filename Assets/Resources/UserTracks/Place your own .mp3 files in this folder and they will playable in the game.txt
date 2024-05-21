@@ -1,4 +1,0 @@
-Should you wish to listen to music on your computer's Hard Drive in the game then you must follow these steps:
-1. Make sure the music is in MP3 format.
-2. Copy the files into the Resources/UserTracks folder.
-3. Go into the games audio settings and enable custom music.

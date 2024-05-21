@@ -123,50 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &82072766
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 82072768}
-  - component: {fileID: 82072767}
-  m_Layer: 0
-  m_Name: GameMgr
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &82072767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 82072766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f67d35f1340bad14ba7366f96af5b048, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &82072768
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 82072766}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 967.0949, y: 560.5968, z: -22.9104}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &254050109
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +376,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: QUIT GAME
+  m_Text: QUIT TO TITLE
 --- !u!222 &364202119
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -470,7 +426,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 386632485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78d5848701d29f42942b108afd812bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 750957c96c87b7d4ea1b0869a42af004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &527281364
@@ -543,7 +499,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: QUIT GAME
+  m_Text: QUIT TO TITLE
 --- !u!222 &527281367
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -873,13 +829,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 386632488}
-        m_TargetAssemblyTypeName: LoadMiniGameScreen, Assembly-CSharp
-        m_MethodName: LoadMiniGameMenu
-        m_Mode: 1
+        m_TargetAssemblyTypeName: lvlMgr, Assembly-CSharp
+        m_MethodName: loadLevel
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -987,4 +943,3 @@ SceneRoots:
   - {fileID: 871845834}
   - {fileID: 386632487}
   - {fileID: 1814618259}
-  - {fileID: 82072768}

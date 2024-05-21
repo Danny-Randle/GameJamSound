@@ -1293,6 +1293,7 @@ MonoBehaviour:
   collisionEnabled: 1
   movementEnabled: 1
   isRespawning: 0
+  hasFinishedLoading: 0
   score: 0
   reqScore: 3
   pts: 0
@@ -1304,11 +1305,11 @@ MonoBehaviour:
   pdl2MovingLeft: 0
   pdl2MovingRight: 0
   ball: {fileID: 0}
+  timerPlaceHolder: {fileID: 6202832042506745688, guid: 6563b2ed5181b954fa7f5c68807b5bf9, type: 3}
   isArcadeMode: 0
-  lives: 5
-  levelProgDir: ../..
-  ARCADE_HI_SCORE_DIR: ../..
+  lives: 9000
   ARCADE_HI_SCORE_FNAME: hiScore.dat
+  hiScore: 0
 --- !u!61 &1360848316
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1398,6 +1399,7 @@ GameObject:
   - component: {fileID: 1674597244}
   - component: {fileID: 1674597243}
   - component: {fileID: 1674597246}
+  - component: {fileID: 1674597247}
   m_Layer: 0
   m_Name: BG
   m_TagString: Untagged
@@ -1653,6 +1655,18 @@ MonoBehaviour:
   SpPrefab: {fileID: 5793598424162245680, guid: ebfc335d3bdf13f44b3521f778b529df, type: 3}
   hasSpawned: 0
   spawnPos: 200
+--- !u!114 &1674597247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674597236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 750e71ef71505994ebb3263461329a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1798396510
 GameObject:
   m_ObjectHideFlags: 0

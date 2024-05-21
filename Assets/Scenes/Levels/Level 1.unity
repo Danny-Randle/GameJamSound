@@ -307,7 +307,6 @@ RectTransform:
   - {fileID: 965433698}
   - {fileID: 1346832266}
   - {fileID: 1855806320}
-  - {fileID: 537402472}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -466,85 +465,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &537402471
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 537402472}
-  - component: {fileID: 537402474}
-  - component: {fileID: 537402473}
-  m_Layer: 5
-  m_Name: cntDwnTxt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &537402472
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 537402471}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 260338350}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30.816, y: -20.5}
-  m_SizeDelta: {x: 222.0142, y: 179.2933}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &537402473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 537402471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.47871256, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 76ac6a18f92797a4ab8e3fd5887d8342, type: 3}
-    m_FontSize: 64
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 6
-    m_MaxSize: 64
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 
---- !u!222 &537402474
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 537402471}
-  m_CullTransparentMesh: 1
 --- !u!1 &624579447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,6 +1293,7 @@ MonoBehaviour:
   collisionEnabled: 1
   movementEnabled: 1
   isRespawning: 0
+  hasFinishedLoading: 0
   score: 0
   reqScore: 3
   pts: 0
@@ -1384,11 +1305,11 @@ MonoBehaviour:
   pdl2MovingLeft: 0
   pdl2MovingRight: 0
   ball: {fileID: 0}
+  cntDwnTxtPrefab: {fileID: 6202832042506745688, guid: 6563b2ed5181b954fa7f5c68807b5bf9, type: 3}
   isArcadeMode: 0
   lives: 5
-  levelProgDir: ../..
-  ARCADE_HI_SCORE_DIR: ../..
   ARCADE_HI_SCORE_FNAME: hiScore.dat
+  hiScore: 0
 --- !u!61 &1360848316
 BoxCollider2D:
   m_ObjectHideFlags: 0

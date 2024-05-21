@@ -40,9 +40,7 @@ public class spwnBadSP : MonoBehaviour
         {
             GameObject badSpInst = Instantiate(badSpPrefab, new Vector3(Screen.width, spawnPos, 1), Quaternion.identity);
             Debug.Log("Spawned Bad SP");
-        }
-
-        
+        }   
     }
 
     // Update is called once per frame

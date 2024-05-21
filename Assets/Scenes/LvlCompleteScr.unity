@@ -285,7 +285,6 @@ GameObject:
   - component: {fileID: 331159502}
   - component: {fileID: 331159504}
   - component: {fileID: 331159503}
-  - component: {fileID: 331159505}
   m_Layer: 5
   m_Name: header
   m_TagString: Untagged
@@ -354,18 +353,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 331159501}
   m_CullTransparentMesh: 1
---- !u!114 &331159505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331159501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bf58eca9b6c45c4796fbee9bcab161a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &364202116
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +423,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: QUIT GAME
+  m_Text: TITLE SCREEN
 --- !u!222 &364202119
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -445,50 +432,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364202116}
   m_CullTransparentMesh: 1
---- !u!1 &386632485
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 386632487}
-  - component: {fileID: 386632488}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &386632487
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 386632485}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 968.3063, y: 482.81152, z: -21.968008}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &386632488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 386632485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78d5848701d29f42942b108afd812bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &486762396
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +810,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 0, b: 0.38862848, a: 1}
     m_HighlightedColor: {r: 0, g: 0.98439527, b: 1, a: 1}
     m_PressedColor: {r: 0, g: 0.6275315, b: 1, a: 1}
-    m_SelectedColor: {r: 0, g: 1, b: 0.45106316, a: 1}
+    m_SelectedColor: {r: 0, g: 1, b: 0.7058824, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -887,14 +830,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1814618258}
-        m_TargetAssemblyTypeName: quitToDesktop, Assembly-CSharp
-        m_MethodName: quitGame
-        m_Mode: 1
+      - m_Target: {fileID: 82072769}
+        m_TargetAssemblyTypeName: lvlMgr, Assembly-CSharp
+        m_MethodName: loadLevel
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1161,7 +1104,6 @@ GameObject:
   - component: {fileID: 1634686167}
   - component: {fileID: 1634686170}
   - component: {fileID: 1634686169}
-  - component: {fileID: 1634686168}
   m_Layer: 5
   m_Name: drpshdw
   m_TagString: Untagged
@@ -1188,18 +1130,6 @@ RectTransform:
   m_AnchoredPosition: {x: 13, y: -13}
   m_SizeDelta: {x: 1920, y: 204.078}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1634686168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1634686166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bf58eca9b6c45c4796fbee9bcab161a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1634686169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1253,7 +1183,6 @@ GameObject:
   - component: {fileID: 1796529925}
   - component: {fileID: 1796529928}
   - component: {fileID: 1796529927}
-  - component: {fileID: 1796529926}
   m_Layer: 5
   m_Name: drpshdw2
   m_TagString: Untagged
@@ -1280,18 +1209,6 @@ RectTransform:
   m_AnchoredPosition: {x: 22, y: -21}
   m_SizeDelta: {x: 1920, y: 204.078}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1796529926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1796529924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bf58eca9b6c45c4796fbee9bcab161a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1796529927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1448,7 +1365,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: QUIT GAME
+  m_Text: TITLE SCREEN
 --- !u!222 &1965416680
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1464,6 +1381,5 @@ SceneRoots:
   - {fileID: 550016269}
   - {fileID: 254050113}
   - {fileID: 871845834}
-  - {fileID: 386632487}
   - {fileID: 1814618259}
   - {fileID: 82072768}

@@ -403,14 +403,14 @@ MonoBehaviour:
   whenComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1726795264}
-        m_TargetAssemblyTypeName: LoadMiniGameScreen, Assembly-CSharp
-        m_MethodName: LoadMiniGameMenu
-        m_Mode: 1
+      - m_Target: {fileID: 1726795266}
+        m_TargetAssemblyTypeName: lvlMgr, Assembly-CSharp
+        m_MethodName: loadLevel
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -504,7 +504,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1726795265}
-  - component: {fileID: 1726795264}
+  - component: {fileID: 1726795266}
   m_Layer: 0
   m_Name: switchToMenu
   m_TagString: Untagged
@@ -512,18 +512,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1726795264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726795263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78d5848701d29f42942b108afd812bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1726795265
 Transform:
   m_ObjectHideFlags: 0
@@ -539,6 +527,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1726795266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726795263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 750957c96c87b7d4ea1b0869a42af004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1894406247
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,7 +862,7 @@ MonoBehaviour:
   whenComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1726795264}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LoadMiniGameScreen, Assembly-CSharp
         m_MethodName: LoadMiniGameMenu
         m_Mode: 1

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using System;
 using System.IO;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class Ball : MonoBehaviour
     public bool hasStarted = false;
     public int movementAmountX = 0;
     public int movementAmountY = 0;
+
     public bool collisionEnabled = true; // controls whether collision is enabled or not.
     public bool movementEnabled = true; // controls whether the ball moves.
     public bool isRespawning = false; // this stops you from losing all of your lives whilst you are respawning.
@@ -31,7 +33,9 @@ public class Ball : MonoBehaviour
     public bool pdl1MovingRight = false;
     public bool pdl2MovingLeft = false;
     public bool pdl2MovingRight = false;
+
     public GameObject ball; // ball placeholder.
+    public GameObject timerPlaceHolder; // placeholder for prefab.
 
     // decalre mode bool:
     public bool isArcadeMode;
@@ -45,9 +49,6 @@ public class Ball : MonoBehaviour
 
     // hiScore value:
     public int hiScore = 0;
-
-
-
 
     // Start is called before the first frame update
     public void Start()
@@ -75,7 +76,6 @@ public class Ball : MonoBehaviour
         catch(Exception err)
         {
             // data read failed:
-            Debug.Log("[ E001 ] "+err.Message); // display an error if the file cant be opened.
             return -1; // error value, it is impossible to have -1 as a hiscore.
         }
     }
@@ -98,7 +98,6 @@ public class Ball : MonoBehaviour
         catch (Exception err)
         {
             // data read failed:
-            Debug.Log("[ E001 ] " + err.Message); // display an error if the file cant be opened.
             return "E"; // error value, it is impossible to have -1 as a hiscore.
         }
     }
@@ -118,28 +117,19 @@ public class Ball : MonoBehaviour
         {
             if (dir.Exists)
             {
-                Debug.Log("[  OK  ] saveData directory already exists so saving data now.");
                 File.WriteAllText(Path.Combine(fPath, fName), fData);
                 return true; // end execution.
             }
 
             // at this point the system has determined that the dir does not exist:
             dir.Create();
-            Debug.Log("[  OK  ] Created saveData directory.");
             File.WriteAllText(Path.Combine(fPath, fName), fData);
-            Debug.Log("[  OK  ] Saved data to saveData directory successfully.");
             return true;
         }
-        catch (Exception e)
+        catch (Exception err)
         {
-            Debug.LogError("[ E002 ] " + e.ToString());
             return false;
         }
-    }
-
-    public void delayMethod()
-    {
-        return;
     }
 
     // method to call unity's object finder and return it's GameObject:
@@ -162,24 +152,12 @@ public class Ball : MonoBehaviour
         isRespawning = false;
     }
 
-    public void blinkBall()
-    {
-        gameObject.GetComponent<Image>().color = new Color32(255, 255, 225, 0);
-    }
-
-    public void blinkBallOn()
-    {
-        gameObject.GetComponent<Image>().color = new Color32(255, 255, 225, 100);
-    }
-
     public void respawnBall()
     {
         isRespawning = true;
         ball.transform.SetPositionAndRotation(new Vector3(Screen.width / 2, Screen.height / 2, 0), transform.rotation);
         collisionEnabled = false;
         movementEnabled = false;
-
-        Invoke("bringBallBackIntoPlay", 3);
     }
 
 
@@ -211,10 +189,6 @@ public class Ball : MonoBehaviour
             // if it is arcade mode save the hi score, this will only happen when the player's current score beats the last hi score.
             if (isArcadeMode)
             {
-                if(writeDataToFile(Application.persistentDataPath, ARCADE_HI_SCORE_FNAME, hiScore.ToString()) == false)
-                {
-                    Debug.LogError("FAILED TO WRITE DATA");
-                }
                 writeDataToFile(Application.persistentDataPath, "lastScore.dat", pts.ToString()); // save last score to show on game over screen.
                 SceneManager.LoadScene(14); // this will load the game over screen arcade edition.
             }
@@ -309,7 +283,6 @@ public class Ball : MonoBehaviour
             arcadeScoreCounterTxt.text = "Score: " + pts;
 
         }
-
         
 
         // get the paddles movement:
@@ -430,8 +403,13 @@ public class Ball : MonoBehaviour
             {
                 pts -= 5;
             }
-
+            
             Invoke("respawnBall", 0);
+
+            GameObject timerInst = Instantiate(timerPlaceHolder, new Vector3(Screen.width / 2, Screen.height / 2, 1), Quaternion.identity);
+            
+
+            Invoke("bringBallBackIntoPlay", 3);
 
             // lose a life:
             lives -= 1;
@@ -446,6 +424,11 @@ public class Ball : MonoBehaviour
             }
 
             Invoke("respawnBall", 0);
+
+            GameObject timerInst = Instantiate(timerPlaceHolder, new Vector3(Screen.width / 2, Screen.height / 2 , 1), Quaternion.identity);
+            
+
+            Invoke("bringBallBackIntoPlay", 3);
 
             // lose a life:
             lives -= 1;
