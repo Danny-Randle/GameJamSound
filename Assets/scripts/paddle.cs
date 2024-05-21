@@ -58,12 +58,12 @@ public class Paddle : MonoBehaviour
         Ball script = ball.GetComponent<Ball>();
 
         // get the input for the paddles:
-        if (Input.GetKey("a"))
+        if (Input.GetKey("left"))
         {
             pdl1.transform.Translate(5,0,0);
             pdl2.transform.Translate(-5,0,0);
         }
-        if (Input.GetKey("d"))
+        if (Input.GetKey("right"))
         {
             pdl1.transform.Translate(-5, 0, 0);
             pdl2.transform.Translate(5, 0, 0);
