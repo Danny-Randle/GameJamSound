@@ -1293,6 +1293,7 @@ MonoBehaviour:
   collisionEnabled: 1
   movementEnabled: 1
   isRespawning: 0
+  hasFinishedLoading: 0
   score: 0
   reqScore: 3
   pts: 0
@@ -1306,9 +1307,9 @@ MonoBehaviour:
   ball: {fileID: 0}
   isArcadeMode: 0
   lives: 999
-  levelProgDir: ../..
-  ARCADE_HI_SCORE_DIR: ../..
   ARCADE_HI_SCORE_FNAME: hiScore.dat
+  DATA_LOCATION: C:\Users\theve\Documents\saveData
+  hiScore: 0
 --- !u!61 &1360848316
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1366,10 +1367,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 1
-  m_AngularDrag: 1
-  m_GravityScale: 1
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

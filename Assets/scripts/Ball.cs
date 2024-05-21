@@ -194,7 +194,7 @@ public class Ball : MonoBehaviour
         if (isArcadeMode && !hasFinishedLoading)
         {
             // try to read the high score;
-            hiScore = readIntDataFromFile(DATA_LOCATION + "\\" + ARCADE_HI_SCORE_FNAME);
+            hiScore = readIntDataFromFile(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\saveData" + "\\" + ARCADE_HI_SCORE_FNAME);
             if(hiScore == -1)
             {
                 hiScore = 0;
@@ -209,8 +209,8 @@ public class Ball : MonoBehaviour
             // if it is arcade mode save the hi score, this will only happen when the player's current score beats the last hi score.
             if (isArcadeMode)
             {
-                writeDataToFile(DATA_LOCATION, ARCADE_HI_SCORE_FNAME, hiScore.ToString());
-                writeDataToFile(DATA_LOCATION, "lastScore.dat", pts.ToString()); // save last score to show on game over screen.
+                writeDataToFile(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\saveData", ARCADE_HI_SCORE_FNAME, hiScore.ToString());
+                writeDataToFile(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\saveData", "lastScore.dat", pts.ToString()); // save last score to show on game over screen.
                 SceneManager.LoadScene(14); // this will load the game over screen arcade edition.
             }
             else
@@ -278,7 +278,7 @@ public class Ball : MonoBehaviour
         if (score == reqScore)
         {
             // write data to the level's file to let the rest of the game know it is complete.
-            writeDataToFile(DATA_LOCATION, modeScript.levelID+".dat", "COMPLETE");
+            writeDataToFile(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\saveData", modeScript.levelID+".dat", "COMPLETE");
             SceneManager.LoadScene(3); // this will load the level complete screen.
         }
 
