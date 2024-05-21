@@ -286,7 +286,7 @@ public class Ball : MonoBehaviour
         
 
         // get the paddles movement:
-        if (Input.GetKey("a"))
+        if (Input.GetKey("left"))
         {
             pdl1MovingLeft = true;
             pdl1MovingRight = false;
@@ -294,7 +294,7 @@ public class Ball : MonoBehaviour
             pdl2MovingRight = true;
         }
 
-        if (Input.GetKey("d"))
+        if (Input.GetKey("right"))
         {
             pdl1MovingLeft = false;
             pdl1MovingRight = true;
@@ -329,11 +329,11 @@ public class Ball : MonoBehaviour
             {
                 if (pdl1MovingLeft)
                 {
-                    movementAmountX = -3;
+                    movementAmountX = -5;
                 }
                 if (pdl1MovingRight)
                 {
-                    movementAmountX = 3;
+                    movementAmountX = 5;
                 }
                 ball.transform.Translate(movementAmountX, -32, 0);
                 startDirection = 1;
@@ -342,11 +342,11 @@ public class Ball : MonoBehaviour
             {
                 if (pdl1MovingLeft)
                 {
-                    movementAmountX = -3;
+                    movementAmountX = -5;
                 }
                 if (pdl1MovingRight)
                 {
-                    movementAmountX = 3;
+                    movementAmountX = 5;
                 }
 
                 ball.transform.Translate(movementAmountX, 32, 0);
@@ -360,11 +360,11 @@ public class Ball : MonoBehaviour
             {
                 if (pdl2MovingLeft)
                 {
-                    movementAmountX = -3;
+                    movementAmountX = -5;
                 }
                 if(pdl2MovingRight)
                 {
-                    movementAmountX = 3;
+                    movementAmountX = 5;
                 }
                 ball.transform.Translate(movementAmountX, -32, 0);
                 startDirection = 1;
@@ -373,11 +373,11 @@ public class Ball : MonoBehaviour
             {
                 if (pdl2MovingLeft)
                 {
-                    movementAmountX = -3;
+                    movementAmountX = -5;
                 }
                 if (pdl2MovingRight)
                 {
-                    movementAmountX = 3;
+                    movementAmountX = 5;
                 }
 
                 ball.transform.Translate(movementAmountX, 32, 0);
@@ -388,12 +388,12 @@ public class Ball : MonoBehaviour
         // bounce off of the edges of the screen:
         if (ballCol.IsTouching(scrLCol))
         {
-            movementAmountX = 3;
+            movementAmountX = 5;
         }
 
         if (ballCol.IsTouching(scrRCol))
         {
-            movementAmountX = -3;
+            movementAmountX = -5;
         }
 
         if (ballCol.IsTouching(scrTCol) && collisionEnabled)

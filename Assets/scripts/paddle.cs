@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Paddle : MonoBehaviour
 {
     public int powerUp = 0; // 0 = none, 1 = double length, 2 = double speed, 3 = both.
-    public int speed = 20; // default speed of 5.
+    public int speed = 5; // default speed of 5.
     public bool isSpeedHalved = false;
     // Do the same for the second player's icons:
 

@@ -1386,10 +1386,10 @@ MonoBehaviour:
   pdl2MovingLeft: 0
   pdl2MovingRight: 0
   ball: {fileID: 0}
+  timerPlaceHolder: {fileID: 6202832042506745688, guid: 6563b2ed5181b954fa7f5c68807b5bf9, type: 3}
   isArcadeMode: 0
   lives: 9
   ARCADE_HI_SCORE_FNAME: hiScore.dat
-  DATA_LOCATION: ../../Test
   hiScore: 0
 --- !u!61 &1360848316
 BoxCollider2D:
