@@ -54,10 +54,18 @@ public class gameOverGetScore : MonoBehaviour
 
         // load the score:
         string scoreData = readStrDataFromFile(Application.persistentDataPath + "\\lastScore.dat");
+        string hiScoreData = readStrDataFromFile(Application.persistentDataPath + "\\hiScore.dat");
 
-        // draw it to the screen:
-        scoreTxt.text = "SCORE: "+ scoreData;
-        Debug.Log(Application.persistentDataPath);
+        if(Int32.Parse(scoreData) >= Int32.Parse(hiScoreData))
+        {
+            // draw it to the screen:
+            scoreTxt.text = "NEW HIGH SCORE: " + scoreData;
+        }
+        else
+        {
+            // draw it to the screen:
+            scoreTxt.text = "SCORE: " + scoreData;
 
+        }
     }
 }

@@ -53,6 +53,7 @@ public class Ball : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+        Application.targetFrameRate = 60;
         ball = findObjByName("ball");
     }
 
@@ -190,6 +191,12 @@ public class Ball : MonoBehaviour
             if (isArcadeMode)
             {
                 writeDataToFile(Application.persistentDataPath, "lastScore.dat", pts.ToString()); // save last score to show on game over screen.
+
+                if(pts >= hiScore)
+                {
+                    writeDataToFile(Application.persistentDataPath, "hiScore.dat", pts.ToString()); // save last score to show on game over screen.
+                }
+
                 SceneManager.LoadScene(14); // this will load the game over screen arcade edition.
             }
             else
@@ -335,6 +342,7 @@ public class Ball : MonoBehaviour
                 {
                     movementAmountX = 400;
                 }
+
                 ball.transform.Translate(movementAmountX * Time.deltaTime, -32, 0);
                 startDirection = 1;
             }

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class Paddle : MonoBehaviour
 {
     public int powerUp = 0; // 0 = none, 1 = double length, 2 = double speed, 3 = both.
