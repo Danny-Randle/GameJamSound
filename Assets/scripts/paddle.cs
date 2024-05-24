@@ -8,7 +8,8 @@ using UnityEngine.UI;
 public class Paddle : MonoBehaviour
 {
     public int powerUp = 0; // 0 = none, 1 = double length, 2 = double speed, 3 = both.
-    public int speed = 5; // default speed of 5.
+    private float speed = 5.0f; // default speed of 5.
+    private char lastDirection = ' '; // this will either be 'L' or 'R';
     public bool isSpeedHalved = false;
     // Do the same for the second player's icons:
 
@@ -60,13 +61,53 @@ public class Paddle : MonoBehaviour
         // get the input for the paddles:
         if (Input.GetKey("left"))
         {
-            pdl1.transform.Translate(5,0,0);
-            pdl2.transform.Translate(-5,0,0);
+            lastDirection = 'L';
+
+            pdl1.transform.Translate(speed * Time.deltaTime,0,0);
+            pdl2.transform.Translate(-speed * Time.deltaTime,0,0);
+
+            if(speed >= 250.0f)
+            {
+                speed += 0.0f;
+            }
+            else
+            {
+                speed += 10.0f;
+            } 
         }
-        if (Input.GetKey("right"))
+        else if (Input.GetKey("right"))
         {
-            pdl1.transform.Translate(-5, 0, 0);
-            pdl2.transform.Translate(5, 0, 0);
+            lastDirection = 'R';
+
+            pdl1.transform.Translate(-speed * Time.deltaTime, 0, 0);
+            pdl2.transform.Translate(speed * Time.deltaTime, 0, 0);
+
+            if (speed >= 250.0f)
+            {
+                speed += 0.0f;
+            }
+            else
+            {
+                speed += 10.0f;
+            }
+        }
+        else
+        {
+            if(speed > 50.0f)
+            {
+                speed -= 10.0f;
+                if (lastDirection == 'L')
+                {
+                    pdl1.transform.Translate(speed * Time.deltaTime, 0, 0);
+                    pdl2.transform.Translate(-speed * Time.deltaTime, 0, 0);
+                }
+                else if(lastDirection == 'R')
+                {
+                    pdl1.transform.Translate(-speed * Time.deltaTime, 0, 0);
+                    pdl2.transform.Translate(speed * Time.deltaTime, 0, 0);
+                }
+                
+            }
         }
     }
 }

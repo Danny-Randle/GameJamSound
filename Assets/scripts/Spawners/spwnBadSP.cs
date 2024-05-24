@@ -60,7 +60,7 @@ public class spwnBadSP : MonoBehaviour
             if (hasSpawned == false)
             {
                 spwnTmrBadSP++;
-                if (spwnTmrBadSP >= spwnIntervalBadSP)
+                if (spwnTmrBadSP >= spwnIntervalBadSP * Time.deltaTime)
                 {
                     if (spwnTmrBadSP >= spwnIntervalBadSP)
                     {

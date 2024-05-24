@@ -11,10 +11,10 @@ public class BadSP : MonoBehaviour
 
     public int speedSelRng = 0;
 
-    public int xSpeed = -10;
-    public int ySpeed = -10;
+    private int xSpeed = -500;
+    public int ySpeed = -500;
     public int dirCntr = 0;
-    public int[] speeds = {10, -10};
+    public int[] speeds = {500, -500};
     public int[] speedMultipliersY = { 0, 1, 2, 3, 4 }; // array containing multiplier values
     public int[] directions = { 0, 1 }; // holds either up or down.
     public int dir = 0; // direction.
@@ -60,11 +60,11 @@ public class BadSP : MonoBehaviour
 
         if(dir == 0)
         {
-            ySpeed = -10;
+            ySpeed = -500;
         }
         if(dir == 1)
         {
-            ySpeed = 10;
+            ySpeed = 500;
         }
 
         // movement logic:
@@ -87,7 +87,7 @@ public class BadSP : MonoBehaviour
             gameObject.transform.SetPositionAndRotation(new Vector3(Screen.width, gameObject.transform.position[1], 1), transform.rotation);
         }
         dirCntr += 1;
-        gameObject.transform.Translate(xSpeed, 0, 0); // move the ball down.
+        gameObject.transform.Translate(xSpeed * Time.deltaTime, 0, 0); // move the ball down.
 
         
         if (spCol.IsTouching(ballCol) && script.collisionEnabled)

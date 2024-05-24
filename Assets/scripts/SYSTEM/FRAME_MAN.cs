@@ -11,7 +11,8 @@ public class FRAME_MAN : MonoBehaviour
         Application.targetFrameRate = 60;
 
         // set refreshrate to be 60 and res to be 1920 x 1080, the user will be able to change this later:
-        Screen.SetResolution(1920, 1080, FullScreenMode.ExclusiveFullScreen, new RefreshRate() { numerator = 60, denominator = 1 });
+        //DisplayInfo.refreshRate = new RefreshRate() { numerator = 60, denominator = 1 };
+        //Screen.SetResolution(1920, 1080, FullScreenMode.ExclusiveFullScreen, new RefreshRate() { numerator = 60, denominator = 1 });
 
     }
 }

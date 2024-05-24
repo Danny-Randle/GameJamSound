@@ -2213,8 +2213,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1649.71, y: -10}
-  m_SizeDelta: {x: 511.4269, y: 64.7658}
+  m_AnchoredPosition: {x: 1477.8894, y: -47.61743}
+  m_SizeDelta: {x: 855.0681, y: 140.0009}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1726606905
 MonoBehaviour:
@@ -2229,7 +2229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.856629, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2237,7 +2237,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 907d1a7e6674d9a4381e200f800c8129, type: 3}
+    m_Font: {fileID: 12800000, guid: 129d736c34cd31d49bc28dc177812439, type: 3}
     m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
@@ -2249,7 +2249,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Version 24.05.212021_Rapid
+  m_Text: 'Version 24.05.241838_rapid
 
 '
 --- !u!222 &1726606906

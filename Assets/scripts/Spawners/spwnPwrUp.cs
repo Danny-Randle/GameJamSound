@@ -40,7 +40,7 @@ public class spwnPwrUp : MonoBehaviour
         if (hasSpawned == false)
         {
             spwnTmrPwrUp++;
-            if(spwnTmrPwrUp >= spwnIntervalPwrUp)
+            if(spwnTmrPwrUp >= spwnIntervalPwrUp * Time.deltaTime)
             {
                 for (int i = 0; i < spwnAmntPwrUp; i++)
                 {

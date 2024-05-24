@@ -312,13 +312,13 @@ public class Ball : MonoBehaviour
         // chooseDirectionOfTravel:
         if (startDirection == 0 && movementEnabled)
         {
-            movementAmountY = 10;
-            ball.transform.Translate(movementAmountX, movementAmountY, 0); // move the ball down.
+            movementAmountY = 400;
+            ball.transform.Translate(movementAmountX * Time.deltaTime, movementAmountY * Time.deltaTime, 0); // move the ball down.
         }
         else if(startDirection == 1 && movementEnabled)
         {
-            movementAmountY = -10;
-            ball.transform.Translate(movementAmountX, movementAmountY, 0); // move the ball up.
+            movementAmountY = -400;
+            ball.transform.Translate(movementAmountX * Time.deltaTime, movementAmountY * Time.deltaTime, 0); // move the ball up.
         }
 
         // sort out collision:
@@ -329,27 +329,27 @@ public class Ball : MonoBehaviour
             {
                 if (pdl1MovingLeft)
                 {
-                    movementAmountX = -5;
+                    movementAmountX = -400;
                 }
                 if (pdl1MovingRight)
                 {
-                    movementAmountX = 5;
+                    movementAmountX = 400;
                 }
-                ball.transform.Translate(movementAmountX, -32, 0);
+                ball.transform.Translate(movementAmountX * Time.deltaTime, -32, 0);
                 startDirection = 1;
             }
             else
             {
                 if (pdl1MovingLeft)
                 {
-                    movementAmountX = -5;
+                    movementAmountX = -400;
                 }
                 if (pdl1MovingRight)
                 {
-                    movementAmountX = 5;
+                    movementAmountX = 400;
                 }
 
-                ball.transform.Translate(movementAmountX, 32, 0);
+                ball.transform.Translate(movementAmountX * Time.deltaTime, 32, 0);
                 startDirection = 0;
             }
         }
@@ -360,40 +360,42 @@ public class Ball : MonoBehaviour
             {
                 if (pdl2MovingLeft)
                 {
-                    movementAmountX = -5;
+                    movementAmountX = -400;
                 }
                 if(pdl2MovingRight)
                 {
-                    movementAmountX = 5;
+                    movementAmountX = 400;
                 }
-                ball.transform.Translate(movementAmountX, -32, 0);
+                ball.transform.Translate(movementAmountX * Time.deltaTime, -32, 0);
                 startDirection = 1;
+
             }
             else
             {
                 if (pdl2MovingLeft)
                 {
-                    movementAmountX = -5;
+                    movementAmountX = -400;
                 }
                 if (pdl2MovingRight)
                 {
-                    movementAmountX = 5;
+                    movementAmountX = 400;
                 }
 
-                ball.transform.Translate(movementAmountX, 32, 0);
+                ball.transform.Translate(movementAmountX * Time.deltaTime, 32, 0);
                 startDirection = 0;
+
             }
         }
 
         // bounce off of the edges of the screen:
         if (ballCol.IsTouching(scrLCol))
         {
-            movementAmountX = 5;
+            movementAmountX = 400;
         }
 
         if (ballCol.IsTouching(scrRCol))
         {
-            movementAmountX = -5;
+            movementAmountX = -400;
         }
 
         if (ballCol.IsTouching(scrTCol) && collisionEnabled)

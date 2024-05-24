@@ -30,7 +30,7 @@ public class spwnSP : MonoBehaviour
         if (hasSpawned == false)
         {
             spwnTmrSP++;
-            if (spwnTmrSP >= spwnIntervalSP)
+            if (spwnTmrSP >= spwnIntervalSP * Time.deltaTime)
             {
                 for (int i = 0; i < spwnAmntSP; i++)
                 {
