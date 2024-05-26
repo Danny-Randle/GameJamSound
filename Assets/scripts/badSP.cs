@@ -20,6 +20,19 @@ public class BadSP : MonoBehaviour
     public int dir = 0; // direction.
     public int speedMultY = 0; // speed multiplier
 
+    private GameObject bg;
+    private GameObject ball;
+    private Ball script;
+    private BG modeScript;
+    private BoxCollider2D spCol;
+    private BoxCollider2D ballCol;
+
+    // method to call unity's object finder and return it's GameObject:
+    GameObject findObjByName(string objName)
+    {
+        GameObject obj = GameObject.Find(objName);
+        return obj;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -31,13 +44,7 @@ public class BadSP : MonoBehaviour
         {
             speedMultY = 1;
         }
-    }
-
-    // method to call unity's object finder and return it's GameObject:
-    GameObject findObjByName(string objName)
-    {
-        GameObject obj = GameObject.Find(objName);
-        return obj;
+        
     }
 
     // Update is called once per frame:
@@ -56,9 +63,7 @@ public class BadSP : MonoBehaviour
         // get this object's boxCollider:
         BoxCollider2D spCol = gameObject.GetComponent<BoxCollider2D>();
 
-        
-
-        if(dir == 0)
+        if (dir == 0)
         {
             ySpeed = -500;
         }
@@ -92,21 +97,9 @@ public class BadSP : MonoBehaviour
         
         if (spCol.IsTouching(ballCol) && script.collisionEnabled)
         {
-            if (modeScript.arcadeMode == false)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                gameObject.transform.SetPositionAndRotation(new Vector3(Screen.width + 200, Screen.height / 2, 0), transform.rotation);
-            }
+            Destroy(gameObject);
             script.lives --;
-            Debug.Log("COLLISION WITH BALL");
+            Debug.LogError("COLLISION WITH BALL");
         }
-        
-
-
-        // check if colliding with the ball:
-        
     }
 }

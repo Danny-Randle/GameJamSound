@@ -197,11 +197,11 @@ public class Ball : MonoBehaviour
                     writeDataToFile(Application.persistentDataPath, "hiScore.dat", pts.ToString()); // save last score to show on game over screen.
                 }
 
-                SceneManager.LoadScene(14); // this will load the game over screen arcade edition.
+                SceneManager.LoadScene(13); // this will load the game over screen arcade edition.
             }
             else
             {
-                SceneManager.LoadScene(4); // this will load the game over screen.
+                SceneManager.LoadScene(3); // this will load the game over screen.
             }
             
         }

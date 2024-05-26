@@ -25,8 +25,8 @@ public class spwnPwrUp : MonoBehaviour
 
     public void spawnPwrUp()
     {
-        GameObject pwrUpInst = Instantiate(pwrUpPrefab, new Vector3(Screen.width, spawnPos, 1), Quaternion.identity);
-        Debug.Log("Spawned POWER UP");
+        GameObject pwrUpInst = Instantiate(pwrUpPrefab, new Vector3(Screen.width + Screen.width, spawnPos, 1), Quaternion.identity);
+        Debug.LogError(Screen.width + Screen.width);
     }
 
     void Awake()
