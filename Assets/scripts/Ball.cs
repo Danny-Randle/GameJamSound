@@ -319,12 +319,12 @@ public class Ball : MonoBehaviour
         // chooseDirectionOfTravel:
         if (startDirection == 0 && movementEnabled)
         {
-            movementAmountY = 400;
+            movementAmountY = 300;
             ball.transform.Translate(movementAmountX * Time.deltaTime, movementAmountY * Time.deltaTime, 0); // move the ball down.
         }
         else if(startDirection == 1 && movementEnabled)
         {
-            movementAmountY = -400;
+            movementAmountY = -300;
             ball.transform.Translate(movementAmountX * Time.deltaTime, movementAmountY * Time.deltaTime, 0); // move the ball up.
         }
 
@@ -336,11 +336,11 @@ public class Ball : MonoBehaviour
             {
                 if (pdl1MovingLeft)
                 {
-                    movementAmountX = -400;
+                    movementAmountX = -300;
                 }
                 if (pdl1MovingRight)
                 {
-                    movementAmountX = 400;
+                    movementAmountX = 300;
                 }
 
                 ball.transform.Translate(movementAmountX * Time.deltaTime, -32, 0);
@@ -350,11 +350,11 @@ public class Ball : MonoBehaviour
             {
                 if (pdl1MovingLeft)
                 {
-                    movementAmountX = -400;
+                    movementAmountX = -300;
                 }
                 if (pdl1MovingRight)
                 {
-                    movementAmountX = 400;
+                    movementAmountX = 300;
                 }
 
                 ball.transform.Translate(movementAmountX * Time.deltaTime, 32, 0);
@@ -368,11 +368,11 @@ public class Ball : MonoBehaviour
             {
                 if (pdl2MovingLeft)
                 {
-                    movementAmountX = -400;
+                    movementAmountX = -300;
                 }
                 if(pdl2MovingRight)
                 {
-                    movementAmountX = 400;
+                    movementAmountX = 300;
                 }
                 ball.transform.Translate(movementAmountX * Time.deltaTime, -32, 0);
                 startDirection = 1;
@@ -382,11 +382,11 @@ public class Ball : MonoBehaviour
             {
                 if (pdl2MovingLeft)
                 {
-                    movementAmountX = -400;
+                    movementAmountX = -300;
                 }
                 if (pdl2MovingRight)
                 {
-                    movementAmountX = 400;
+                    movementAmountX = 300;
                 }
 
                 ball.transform.Translate(movementAmountX * Time.deltaTime, 32, 0);

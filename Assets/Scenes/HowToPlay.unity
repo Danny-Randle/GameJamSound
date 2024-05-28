@@ -1375,8 +1375,8 @@ MonoBehaviour:
   m_Text: "The aim of this game is to use the ball to collect all of the yellow music
     notes and avoid the red angry icons, the blue icons are lives and give you an
     extra life.\n\nIf the ball goes off of the top or bottom of the screen you lose
-    a life.\n\nIn Endurance mode the goal is to last as long as possible.\n\nControls
-    are [LEFT ARROW] to move left and [RIGHT ARROW] to move right. \nGood Luck!"
+    a life.\n\nControls are [LEFT ARROW] to move left and [RIGHT ARROW] to move right.
+    \nGood Luck!"
 --- !u!222 &1737956484
 CanvasRenderer:
   m_ObjectHideFlags: 0
