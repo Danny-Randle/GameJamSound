@@ -50,6 +50,11 @@ public class Ball : MonoBehaviour
     // hiScore value:
     public int hiScore = 0;
 
+    // audio variables
+    public AudioSource MyAudio;
+    public AudioClip[] myAudioClips;
+    public AudioClip damageClip;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -360,6 +365,9 @@ public class Ball : MonoBehaviour
                 ball.transform.Translate(movementAmountX * Time.deltaTime, 32, 0);
                 startDirection = 0;
             }
+            //Get Random Audio Clip and then play it
+            AudioClip randomClip = myAudioClips[UnityEngine.Random.Range(0, myAudioClips.Length)];
+            MyAudio.PlayOneShot(randomClip);
         }
         if (ballCol.IsTouching(pdl2Col))
         {
@@ -393,6 +401,9 @@ public class Ball : MonoBehaviour
                 startDirection = 0;
 
             }
+            //Get Random Audio Clip and then play it
+            AudioClip randomClip = myAudioClips[UnityEngine.Random.Range(0, myAudioClips.Length)];
+            MyAudio.PlayOneShot(randomClip);
         }
 
         // bounce off of the edges of the screen:
@@ -423,6 +434,9 @@ public class Ball : MonoBehaviour
 
             // lose a life:
             lives -= 1;
+
+            Debug.Log("movementEnabled: " + movementEnabled);
+            MyAudio.PlayOneShot(damageClip);
         }
 
         if (ballCol.IsTouching(scrBCol) && collisionEnabled)
@@ -442,6 +456,9 @@ public class Ball : MonoBehaviour
 
             // lose a life:
             lives -= 1;
+
+            Debug.Log("movementEnabled: " + movementEnabled);
+            MyAudio.PlayOneShot(damageClip);
         }
 
     }
