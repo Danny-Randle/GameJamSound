@@ -47,4 +47,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOverScrArcade.unity
     guid: 9a4c593921db0354780aa68fd8e1c8f9
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 7.unity
+    guid: 8dcf4f0722aa3644fbee51c9dc87beab
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 8.unity
+    guid: ec193a3ab1116d94f93bbf0d7eece729
   m_configObjects: {}
