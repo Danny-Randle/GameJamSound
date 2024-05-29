@@ -270,7 +270,7 @@ public class Ball : MonoBehaviour
         {
             // write data to the level's file to let the rest of the game know it is complete.
             writeDataToFile(Application.persistentDataPath, modeScript.levelID+".dat", "COMPLETE");
-            SceneManager.LoadScene(3); // this will load the level complete screen.
+            SceneManager.LoadScene(2); // this will load the level complete screen.
         }
 
         // set arcadeMode bool:
